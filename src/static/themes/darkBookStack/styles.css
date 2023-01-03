@@ -1,0 +1,15 @@
+@import url("https://raw.githack.com/ecossistemadev/dev-theme-bookstack/main/bookstack/padrao/styles.css");
+@import url("https://raw.githack.com/ecossistemadev/dev-theme-bookstack/main/bookstack/padrao/print-styles.css") print;
+@import url("https://raw.githack.com/ecossistemadev/dev-theme-bookstack/main/css/_main.css");
+
+input{
+    width: 100%!important;
+}
+
+input[type="checkbox"]{
+    width: auto!important;
+}
+
+label{
+    display: inline-block!important;
+}
