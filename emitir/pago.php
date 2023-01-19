@@ -40,14 +40,13 @@
 
                 <div class="form-group">
                     <input tabindex="2" required id="termos" name="termos" type="checkbox" />
-                    <label for="termos">Aceito os termos de uso do site
-                        <.dev />!
+                    <label for="termos">Aceito a <a href="https://ecossistema.dev/politica-privacidade-termos-e-condicoes/" target="_blank" title="Clique para abrir a página e ler!">Política Privacidade, Termos e Condições.</a>
                     </label>
                 </div>
                 <div class="form-group">
                     <input tabindex="2" required id="subscribeNews" name="subscribeNews" type="checkbox" checked />
-                    <label for="subscribeNews">Aceito receber novidades da
-                        <.dev />!
+                    <label for="subscribeNews" title="Isso significa que poderá receber e-mails ou menssagens de texto por whatsapp ou sms de empresa que pertecem a Ecossistema.dev, não gostamos de spam então não se preocupe você poderá deicidir sair quanto quiser dessa lista e receberá apenas notificações de promoções relevantes para você Dev :)">
+                        Aceito receber novidades da <.dev />!
                     </label>
                 </div>
             </div>
