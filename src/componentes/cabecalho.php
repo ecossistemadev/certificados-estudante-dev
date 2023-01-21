@@ -20,6 +20,20 @@ include $_SERVER['DOCUMENT_ROOT'] . '/config.php';
     <link rel="icon" href="/src/static/img/astronauta-perfil-fundo-transparente.png">
 
     <script src="https://raw.githack.com/ecossistemadev/dev-theme-bookstack/main/bookstack/padrao/app.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G8KVMRP2KE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-G8KVMRP2KE');
+    </script>
+    
 </head>
 
 <body class="theme-body">
