@@ -8,7 +8,7 @@
 
     <div class="card content-wrap auto-height">
         <h1 class="list-heading">Emitir meu certificado</h1>
-        <h2 class="list-heading mb-4"><?php echo $detalhesProduto->produtoNome; ?> <b>R$ <?php echo number_format($detalhesProduto->produtoPreco / 100, 2, ",", ""); ?></b></h2>
+        <h2 class="list-heading mb-4"><?php echo $detalhesProduto->produtoNome; ?> <b class="text-success">R$ <?php echo number_format($detalhesProduto->produtoPreco / 100, 2, ",", ""); ?></b></h2>
 
         <div class="text-center"><img class="w-50 mb-4 border-radius-1" src="<?php echo $detalhesProduto->produtoImg; ?>" alt="Imagen do produto" /></div>
 
@@ -17,6 +17,7 @@
             
             <input type="hidden" name="id" value="<?php echo $id ?>" />
             <input type="hidden" name="priceId" value="<?php echo $detalhesProduto->priceId ?>" />
+            <input type="hidden" name="produtoNome" value="<?php echo $detalhesProduto->produtoNome ?>" />
         
             <div>
                 <div class="form-group">
