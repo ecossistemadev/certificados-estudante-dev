@@ -19,7 +19,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/config.php';
     <link href="/src/static/themes/darkBookStack/styles.css" rel="stylesheet">
     <link rel="icon" href="/src/static/img/astronauta-perfil-fundo-transparente.png">
 
-    <script src="https://raw.githack.com/ecossistemadev/dev-theme-bookstack/main/bookstack/padrao/app.js"></script>
+    <script src="https://rawcdn.githack.com/ecossistemadev/dev-theme-bookstack/797be5d74305e57caeb32a041df4789abdb549be/bookstack/padrao/app.js"></script>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-G8KVMRP2KE"></script>

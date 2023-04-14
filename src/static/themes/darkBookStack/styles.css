@@ -1,6 +1,6 @@
-@import url("https://raw.githack.com/ecossistemadev/dev-theme-bookstack/main/bookstack/padrao/styles.css");
-@import url("https://raw.githack.com/ecossistemadev/dev-theme-bookstack/main/bookstack/padrao/print-styles.css") print;
-@import url("https://raw.githack.com/ecossistemadev/dev-theme-bookstack/main/css/_main.css");
+@import url("https://rawcdn.githack.com/ecossistemadev/dev-theme-bookstack/797be5d74305e57caeb32a041df4789abdb549be/bookstack/padrao/styles.css");
+@import url("https://rawcdn.githack.com/ecossistemadev/dev-theme-bookstack/797be5d74305e57caeb32a041df4789abdb549be/bookstack/padrao/print-styles.css") print;
+@import url("https://rawcdn.githack.com/ecossistemadev/dev-theme-bookstack/797be5d74305e57caeb32a041df4789abdb549be/css/_main.css");
 
 input{
     width: 100%!important;
