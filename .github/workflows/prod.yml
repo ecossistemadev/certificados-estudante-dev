@@ -18,7 +18,7 @@ jobs:
     - name: 📥 Configurar o PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '7.4' # substitua pela versão do PHP desejada
+        php-version: '8.2' # substitua pela versão do PHP desejada
 
 
 
