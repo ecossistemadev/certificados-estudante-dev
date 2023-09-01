@@ -1,28 +1,79 @@
-<?php include $_SERVER['DOCUMENT_ROOT'].'/src/componentes/cabecalho.php'; ?>
+<?php
+    $PATH_ROOT = __DIR__;
+    require_once $PATH_ROOT."/vendor/autoload.php";
+    $dotenv = Dotenv\Dotenv::createImmutable($PATH_ROOT);
+    $dotenv->load();
+    
 
-<div id="content" components="" class="block">
+    // Obtenha a URL da solicitação atual
+    $pathUrl = str_replace($_SERVER['DOCUMENT_ROOT'], "", $PATH_ROOT);
+    $urlEx = explode("/", $_SERVER['REQUEST_URI']);
+    if(!$urlEx[1]){
+        $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    }else{
+        if(str_contains($pathUrl, $urlEx[1])){
+            unset($urlEx[1]);
+        }
+        $url = parse_url(implode("/", $urlEx), PHP_URL_PATH);
+    }
+    if (substr($url, -1) === '/') {
+        // Remova o '/' do final da URL
+        $url = rtrim($url, '/');
+    }
+    // Verifique se há redirecionamento para a URL atual
+    $redirects = json_decode(file_get_contents($PATH_ROOT . "/redirectsUrls.json"), true);
+    $strParamsUrl = "?" . http_build_query($_GET);
+    $redirectTo = null;
+    if (isset($redirects[$url])) {
+        $redirectTo = $redirects[$url];
+    }
+    if (isset($redirects[$url.$strParamsUrl])) {
+        $redirectTo = $redirects[$url.$strParamsUrl];
+    }
+    if($redirectTo){
+        $redirectParams = parse_url($redirectTo, PHP_URL_PATH);
+        if($redirectParams){
+            $strParamsUrl =  "&" . http_build_query($_GET);
+        }
+        if (strpos($redirectTo, "://") !== false) {
+            header("Location: " . $redirectTo . $strParamsUrl);
+        } else {
+            header("Location: " . $pathUrl . $redirectTo . $strParamsUrl);
+        }
+        exit();
+    } 
 
-    <div class="container very-small">
-
-        <div class="my-l">&nbsp;</div>
-
-        <div class="card content-wrap auto-height">
-            <h1 class="list-heading mb-4">O que precisa fazer hoje?</h1>
 
 
-            <a href="/busca/numero" class="button text-center w-100">
-                <i class="zmdi zmdi-assignment-check"></i>
-                Verificar um certificado pelo número
-            </a>
-            <br />
-            <a href="/busca/email" class="button text-center w-100">
-                <i class="zmdi zmdi-search"></i>
-                Buscar meus certificados por e-mail
-            </a>
+    $titleStart = "";
+    $titleEnd = " | Certificados.Estudante.dev";
+    
 
-        </div>
-    </div>
 
-</div>
+    include $PATH_ROOT."/src/componentes/layout/htmlStart.php";
 
-<?php include $_SERVER['DOCUMENT_ROOT'].'/src/componentes/rodape.php'; ?>
+    
+    
+    // Carregar a página
+    if(($url === "/") || ($url === "/index.php") || ($url === "/index.html")){
+        include $PATH_ROOT."/src/paginas/index.php";
+    }else{
+        $arquivoPagina = $PATH_ROOT."/src/paginas/".$url.".php";
+        if (file_exists($arquivoPagina)) {
+            // Redirecione para o arquivo correspondente à pagina
+            include $arquivoPagina;
+        } else {
+            $arquivoPagina = $PATH_ROOT."/src/paginas/".$url."/index.php";
+            if (file_exists($arquivoPagina)) {
+                // Redirecione para o arquivo correspondente à pagina
+                include $arquivoPagina;
+            } else{
+                // Rota não encontrada
+                include $PATH_ROOT."/src/paginas/404.php";
+            }
+        }
+    }
+
+    include $PATH_ROOT."/src/componentes/layout/htmlEnd.php";
+
+ ?>

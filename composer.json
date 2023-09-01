@@ -2,23 +2,20 @@
     "name": "ecossistema.dev/certificados-estudante-dev",
     "description": "Sistema de certificados da Estudante.dev",
     "type": "project",
+    "authors": [
+        {
+            "name": "Rubens Flinco",
+            "email": "rubens.flinco@ecossistema.dev"
+        }
+    ],
     "scripts": {
         "start": "composer run dev",
-        "dev": "php -S localhost:8000"
+        "dev": "php -S localhost:5000"
     },
     "config": {
         "process-timeout": 0
     },
-    "autoload": {
-        "psr-4": {
-            "EcossistemaDev\\CertificadosEstudanteDev\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Rubens Flinco",
-            "email": "contato@ecossistema.dev"
-        }
-    ],
-    "require": {}
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
+    }
 }

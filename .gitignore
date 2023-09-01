@@ -1,3 +1,2 @@
-.vscode/ftp-kr.json
-.vscode/*.cache.json
-/vendor/
+.env
+vendor
