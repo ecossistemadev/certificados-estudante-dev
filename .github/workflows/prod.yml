@@ -38,7 +38,7 @@ jobs:
     - name: 🔨 Criar arquivo .env
       uses: SpicyPizza/create-envfile@v2.0.2
       with:
-        envkey_baseUrlApiN8n: ${{ vars.baseUrlApiN8n }}
+        envkey_BASE_URL_API_N8N: ${{ vars.BASE_URL_API_N8N }}
         file_name: .env
         fail_on_empty: false
 

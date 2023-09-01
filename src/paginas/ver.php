@@ -29,6 +29,6 @@ if(!$numeroCertificado){ ?>
   </style>
 
   <div class="iframe-container">
-    <iframe src="<?php echo $_ENV["baseUrlApiN8n"].'/ver?numeroCertificado='.$numeroCertificado ?>" frameborder="0"></iframe>
+    <iframe src="<?php echo $_ENV["BASE_URL_API_N8N"].'/ver?numeroCertificado='.$numeroCertificado ?>" frameborder="0"></iframe>
   </div>
 </body>

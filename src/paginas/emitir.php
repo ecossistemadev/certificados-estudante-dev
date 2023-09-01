@@ -1,7 +1,6 @@
 <?php
 include $PATH_ROOT.'/src/api/modelo.php';
 
-
 $id = urldecode($_GET['id'] ?? null);
 $idFr = urldecode($_GET['idFr'] ?? null);
 $detalhesProduto = ApiModeloObterDetalhes($id);
@@ -25,11 +24,11 @@ if(($detalhesFormacaoProduto) && ($detalhesFormacaoProduto->tipoCertificado === 
 $produtoPreco = floatval($detalhesProduto->produtoPreco);
 if ($produtoPreco > 0) {
     $produtoPago = true;
-    $urlFormGerar = $_ENV["baseUrlApiN8n"]."/stripe/criar/sessao";
+    $urlFormGerar = $_ENV["BASE_URL_API_N8N"]."/stripe/criar/sessao";
 } else {
     $produtoPago = false;
     $detalhesProduto->produtoPreco = 0;
-    $urlFormGerar = $_ENV["baseUrlApiN8n"]."/emitir/gratis";
+    $urlFormGerar = $_ENV["BASE_URL_API_N8N"]."/emitir/gratis";
 }
 
 ?>

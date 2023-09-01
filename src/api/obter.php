@@ -17,7 +17,7 @@ function ApiObterPorEmail($email){
         );
     
         $context  = stream_context_create($options);
-        $respostaApi = file_get_contents($_ENV["baseUrlApiN8n"] . "/obter/email", false, $context);
+        $respostaApi = file_get_contents($_ENV["BASE_URL_API_N8N"] . "/obter/email", false, $context);
         $respostaApiJson = json_decode($respostaApi);
         return $respostaApiJson;
     }else{
