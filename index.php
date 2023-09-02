@@ -22,8 +22,10 @@
     }
     // Verifique se há redirecionamento para a URL atual
     $redirects = json_decode(file_get_contents($PATH_ROOT . "/redirectsUrls.json"), true);
-    $strParamsUrl = "?" . http_build_query($_GET);
     $redirectTo = null;
+    if(http_build_query($_GET)){
+        $strParamsUrl = "?" . http_build_query($_GET);
+    }
     if (isset($redirects[$url])) {
         $redirectTo = $redirects[$url];
     }
@@ -32,12 +34,14 @@
     }
     if($redirectTo){
         $redirectParams = parse_url($redirectTo, PHP_URL_QUERY);
-        $strParamsUrl .=  "&" . $redirectParams;
+        if($redirectParams){
+            $strParamsUrl .=  "&" . $redirectParams;
+        }
         if (strpos($redirectTo, "://") !== false) {
             header("Location: " . $redirectTo);
         } else {
             $redirectTo = parse_url($redirectTo, PHP_URL_PATH);
-            header("Location: " . $pathUrl . $redirectTo . $strParamsUrl);
+            header("Location: " . $pathUrl . $redirectTo . $strParamsUrl ?? "");
         }
         exit();
     } 
