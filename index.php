@@ -31,13 +31,12 @@
         $redirectTo = $redirects[$url.$strParamsUrl];
     }
     if($redirectTo){
-        $redirectParams = parse_url($redirectTo, PHP_URL_PATH);
-        if($redirectParams){
-            $strParamsUrl =  "&" . http_build_query($_GET);
-        }
+        $redirectParams = parse_url($redirectTo, PHP_URL_QUERY);
+        $strParamsUrl .=  "&" . $redirectParams;
         if (strpos($redirectTo, "://") !== false) {
-            header("Location: " . $redirectTo . $strParamsUrl);
+            header("Location: " . $redirectTo);
         } else {
+            $redirectTo = parse_url($redirectTo, PHP_URL_PATH);
             header("Location: " . $pathUrl . $redirectTo . $strParamsUrl);
         }
         exit();
