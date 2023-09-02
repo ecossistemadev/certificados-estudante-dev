@@ -117,12 +117,19 @@ if ($produtoPreco > 0) {
 
                 <p class="mt-4"><?php echo $detalhesProduto->produtoDescricao; ?></p>
                 <ul>
-                    <li>Ótimo complemento para o currículo</li>
-                    <li>Permite a adição fácil no perfil do LinkedIn</li>
-                    <li>Arquivo em formato PDF</li>
-                    <li>Validação do certificado online</li>
-                    <li>Pode ser apresentado como comprovante de conhecimento em reuniões de trabalho ou entrevistas</li>
-                    <li>Pode ser usado como comprovante de conhecimento em processos seletivos</li>
+                    <?php
+                        if($detalhesProduto->todos->features){
+                            foreach ($detalhesProduto->todos->features as $beneficio) {
+                                echo "<li>$beneficio->name</li>";
+                            }
+                        } else { ?>
+                            <li>Ótimo complemento para o currículo</li>
+                            <li>Permite a adição fácil no perfil do LinkedIn</li>
+                            <li>Arquivo em formato PDF</li>
+                            <li>Validação do certificado online</li>
+                            <li>Pode ser apresentado como comprovante de conhecimento em reuniões de trabalho ou entrevistas</li>
+                            <li>Pode ser usado como comprovante de conhecimento em processos seletivos</li>
+                    <?php }?>
                 </ul>
             </div>
         </div>
