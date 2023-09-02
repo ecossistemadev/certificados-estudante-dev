@@ -1,26 +1,22 @@
 <?php
+use GuzzleHttp\Client;
 
 function ApiObterPorEmail($email){
     if($email){
-        // Dados a serem enviados na requisição
-        $data = array(
+
+        $client = new Client(['verify' => false]);
+        $apiReqUrl = $_ENV["BASE_URL_API_N8N"] . "/obter/email";
+        $body = array(
             'emailAluno' => $email
         );
-    
-        // Converte os dados para o formato JSON
-        $options = array(
-            'http' => array(
-                'header'  => "Content-type: application/json\r\n",
-                'method'  => 'POST',
-                'content' => json_encode($data),
-            ),
-        );
-    
-        $context  = stream_context_create($options);
-        $respostaApi = file_get_contents($_ENV["BASE_URL_API_N8N"] . "/obter/email", false, $context);
+        $response = $client->post($apiReqUrl, [
+            'json' => $body,
+        ]);
+
+        $respostaApi = $response->getBody()->getContents();
         $respostaApiJson = json_decode($respostaApi);
         return $respostaApiJson;
-    }else{
+    } else {
         return null;
     }
 }
