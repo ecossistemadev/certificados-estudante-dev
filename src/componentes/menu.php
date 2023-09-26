@@ -1,3 +1,6 @@
+<?php
+if($_GET["iframe"] !== "true"){
+?>
 <header id="header" component="header-mobile-toggle" class="primary-background">
     <div class="grid mx-l">
         <div>
@@ -8,3 +11,6 @@
         </div>
     </div>
 </header>
+<?php
+}
+?>
