@@ -54,7 +54,7 @@ if ($produtoPreco > 0) {
                 <div class="text-center mt-4"><img class="w-50 mb-4 border-radius-1" src="<?php echo $detalhesProduto->produtoImg; ?>" alt="Imagen do produto" /></div>
 
 
-                <form id="formGerar" method="post" action="<?php echo $urlFormGerar;?>">
+                <form id="formGerar" method="post" action="<?php echo $urlFormGerar;?>" <?php if($_GET["iframe"] === "true"){ echo 'target="_blank"'; } ?> >
                     
                     <input type="hidden" name="id" value="<?php echo $id ?>" />
                     <input type="hidden" name="priceId" value="<?php echo $detalhesProduto->priceId ?>" />
