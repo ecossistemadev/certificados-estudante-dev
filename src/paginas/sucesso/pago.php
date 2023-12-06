@@ -3,13 +3,13 @@ include $PATH_ROOT. '/src/api/stripe.php';
 
 
 
-$stripeSessionId = $_GET['stripeSessionId'] ?? null;
-$sessao = ApiStripeObterSessao($stripeSessionId);
+// $stripeSessionId = $_GET['stripeSessionId'] ?? null;
+// $sessao = ApiStripeObterSessao($stripeSessionId);
 
-if(!$sessao){
-    header('Location: '.$pathUrl.'/404');
-    exit; 
-}
+// if(!$sessao){
+//     header('Location: '.$pathUrl.'/404');
+//     exit; 
+// }
 
 ?>
 <head>
