@@ -24,7 +24,7 @@ if(($detalhesFormacaoProduto) && ($detalhesFormacaoProduto->tipoCertificado === 
 $produtoPreco = floatval($detalhesProduto->produtoPreco);
 if ($produtoPreco > 0) {
     $produtoPago = true;
-    $urlFormGerar = $_ENV["BASE_URL_API_N8N"]."/stripe/criar/sessao";
+    $urlFormGerar = $_ENV["BASE_URL_API_N8N"]."/pagamento/criar/sessao";
 } else {
     $produtoPago = false;
     $detalhesProduto->produtoPreco = 0;
@@ -99,9 +99,10 @@ if ($produtoPreco > 0) {
                     </div>
 
                     <?php if($produtoPago){ ?>
-                        <button tabindex="3" id="submit-login" type="submit" class="button"><i class="zmdi zmdi-shopping-cart"></i> Continuar para o pagamento</button>
+                        <button type="submit" name="botaoSubmit" value="mercadopago" tabindex="3" id="submit-login" class="button"><i class="zmdi zmdi-shopping-cart"></i> Pagar com PIX</button>
+                        <button type="submit" name="botaoSubmit" value="stripe" tabindex="3" id="submit-login" class="button outline"><i class="zmdi zmdi-card"></i> Pagar com Cartão</button>
                     <?php } else { ?>
-                        <button tabindex="3" id="submit-login" type="submit" class="button"><i class="zmdi zmdi-check-all"></i> Emitir</button>
+                        <button type="submit" name="botaoSubmit" value="gratis" tabindex="3" id="submit-login" class="button"><i class="zmdi zmdi-check-all"></i> Emitir</button>
                     <?php } ?>
                     
                 </form>

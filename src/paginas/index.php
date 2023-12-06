@@ -16,7 +16,7 @@
                     Verificar um certificado pelo número
                 </a>
                 <br />
-                <a href="<?php echo $pathUrl;?>/busca/email" class="button text-center w-100">
+                <a href="<?php echo $pathUrl;?>/busca/email" class="button outline text-center w-100">
                     <i class="zmdi zmdi-search"></i>
                     Buscar meus certificados por e-mail
                 </a>
