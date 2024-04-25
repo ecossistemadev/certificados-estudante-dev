@@ -86,6 +86,7 @@ if ($produtoPreco > 0) {
                         </div>
                         <div class="form-group">
                             <label for="email">Tipo do documento fiscal</label>
+                            <br>
                             <select tabindex="1" required id="documentType" name="documentType" class="theme-form-input">
                                 <option value="CPF" selected="selected">CPF - Brasil</option>
                                 <option value="CNPJ">CNPJ - Brasil</option>
