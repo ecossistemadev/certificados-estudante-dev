@@ -76,10 +76,10 @@ if ($produtoPreco > 0) {
                             <label for="lastname">Sobrenome</label>
                             <input tabindex="1" required id="lastname" name="lastname" type="text" class="theme-form-input" placeholder="Digite seu sobrenome" />
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="celular">Celular</label>
                             <input tabindex="1" required id="celular" name="celular" type="text" class="theme-form-input" placeholder="Digite seu número do celular" pattern="[0-9]{11,11}" title="Apenas com números e não textos! Formatação é primeiro o seu DD do estado seguido do número, Deve conter 11 dígitos." />
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label for="email">E-mail</label>
                             <input tabindex="1" required id="email" name="email" type="email" class="theme-form-input" placeholder="Digite o seu melhor e-mail" />
