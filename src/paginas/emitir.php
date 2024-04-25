@@ -84,6 +84,22 @@ if ($produtoPreco > 0) {
                             <label for="email">E-mail</label>
                             <input tabindex="1" required id="email" name="email" type="email" class="theme-form-input" placeholder="Digite o seu melhor e-mail" />
                         </div>
+                        <div class="form-group">
+                            <label for="email">Tipo do documento fiscal</label>
+                            <select tabindex="1" required id="documentType" name="documentType" class="theme-form-input">
+                                <option value="CPF" selected="selected">CPF - Brasil</option>
+                                <option value="CNPJ">CNPJ - Brasil</option>
+                                <option value="NIF">NIF - Portugal</option>
+                                <option value="NUIT">NUIT - Moçambique</option>
+                                <option value="CC">CC - Angola</option>
+                                <option value="NID">NID - Taiwan</option>
+                                <option value="SSN">SSN - Estados Unidos</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Número do documento fiscal</label>
+                            <input tabindex="1" required id="documentNumber" name="documentNumber" type="number" class="theme-form-input" placeholder="Digite apenas números" />
+                        </div>
 
 
 
