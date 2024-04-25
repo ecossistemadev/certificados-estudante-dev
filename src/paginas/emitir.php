@@ -57,7 +57,9 @@ if ($produtoPreco > 0) {
                 <form id="formGerar" method="post" action="<?php echo $urlFormGerar;?>" <?php if($_GET["iframe"] === "true"){ echo 'target="_blank"'; } ?> >
                     
                     <input type="hidden" name="id" value="<?php echo $id ?>" />
+                    <input type="hidden" name="ip" value="<?php echo $getIpUser ?>" />
                     <input type="hidden" name="priceId" value="<?php echo $detalhesProduto->priceId ?>" />
+                    <input type="hidden" name="produtoPrecoMoeda" value="<?php echo $detalhesProduto->produtoPrecoMoeda ?>" />
                     <input type="hidden" name="produtoNome" value="<?php echo $detalhesProduto->produtoNome ?>" />
                     <?php if($produtoFazParteFormacao) { ?>
                         <input type="hidden" name="formacaoId" value="<?php echo $idFr ?>" />
@@ -99,8 +101,7 @@ if ($produtoPreco > 0) {
                     </div>
 
                     <?php if($produtoPago){ ?>
-                        <button type="submit" name="botaoSubmit" value="mercadopago" tabindex="3" id="submit-login" class="button"><i class="zmdi zmdi-shopping-cart"></i> Pagar com PIX</button>
-                        <button type="submit" name="botaoSubmit" value="stripe" tabindex="3" id="submit-login" class="button outline"><i class="zmdi zmdi-card"></i> Pagar com Cartão</button>
+                        <button type="submit" name="botaoSubmit" value="pago" tabindex="3" id="submit-login" class="button"><i class="zmdi zmdi-shopping-cart"></i> Ir para Pagamento</button>
                     <?php } else { ?>
                         <button type="submit" name="botaoSubmit" value="gratis" tabindex="3" id="submit-login" class="button"><i class="zmdi zmdi-check-all"></i> Emitir</button>
                     <?php } ?>
@@ -109,7 +110,7 @@ if ($produtoPreco > 0) {
             </div>
             
             <div class="col auto-height beneficios">
-                <h2 class="list-heading" remove-mobile="true"><?php echo $detalhesProduto->produtoNome; ?> <b class="text-success">R$ <?php echo number_format($detalhesProduto->produtoPreco / 100, 2, ",", ""); ?></b></h2>
+                <h2 class="list-heading" remove-mobile="true"><?php echo $detalhesProduto->produtoNome; ?> <b class="text-success"><?php echo $detalhesProduto->produtoPrecoMoedaSimbolo; ?> <?php echo number_format($detalhesProduto->produtoPreco / 100, 2, ",", ""); ?> (<?php echo strtoupper($detalhesProduto->produtoPrecoMoeda); ?>)</b></h2>
 
                 <?php if($produtoFazParteFormacao) { ?>
                     <b remove-mobile="true">Faz parte do <?php echo $detalhesFormacaoProduto->produtoNome; ?></b>
