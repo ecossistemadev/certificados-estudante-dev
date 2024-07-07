@@ -6,7 +6,7 @@ $email = $_GET['email'] ?? null;
 $lista = ApiObterPorEmail($email);
 
 
-if (($lista === null) || (isset($lista->message))) {
+if (($lista === null) || (!$lista[0]->numero)) {
     header('Location: '.$pathUrl.'/404');
     exit; 
 }
